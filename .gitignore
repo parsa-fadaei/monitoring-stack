@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Environment files
+.env
+
+# Grafana data
+grafana/data/
+
+# Prometheus data
+prometheus/data/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
