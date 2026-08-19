@@ -115,7 +115,9 @@ histogram_quantile(
 )
 ```
 
-Alerting
+## Alerting
+
+
 Implemented:
 - Prometheus alert rules
 - Alertmanager integration
