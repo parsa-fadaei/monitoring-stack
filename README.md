@@ -2,13 +2,19 @@
 
 A production-style monitoring and observability stack built using Docker Compose.
 
-This project demonstrates infrastructure monitoring, container monitoring, database monitoring, web server monitoring, and application observability using the Prometheus ecosystem.
+This project demonstrates how to collect, visualize, and alert on infrastructure, container, database, web server, and application metrics using the Prometheus ecosystem.
 
 ---
 
-## Overview
+# Overview
 
-The goal of this project is to build a complete monitoring platform capable of collecting, storing, visualizing, and alerting on system and application metrics.
+The goal of this project was to build a complete monitoring platform capable of:
+
+- collecting metrics
+- storing time-series data
+- creating operational dashboards
+- detecting abnormal conditions
+- generating alerts
 
 The stack monitors:
 
@@ -20,37 +26,127 @@ The stack monitors:
 
 ---
 
-## Architecture
+# Architecture
 
-(Architecture diagram will be added here)
+*(Architecture diagram will be added here)*
 
 ---
 
-## Technologies
+# Technologies
 
 | Component | Purpose |
 |---|---|
-| Docker Compose | Container orchestration |
+| Docker Compose | Containerized deployment |
 | Prometheus | Metrics collection and querying |
-| Grafana | Dashboards and visualization |
-| Alertmanager | Alert processing and routing |
-| node_exporter | Linux system metrics |
-| cAdvisor | Container metrics |
-| postgres_exporter | PostgreSQL metrics |
-| nginx exporter | NGINX metrics |
+| Grafana | Visualization and dashboards |
+| Alertmanager | Alert processing |
+| node_exporter | Linux host metrics |
+| cAdvisor | Docker container metrics |
+| postgres_exporter | PostgreSQL monitoring |
+| nginx-prometheus-exporter | NGINX metrics |
 | FastAPI | Instrumented application |
 
 ---
 
-## Features
+# Implemented Features
 
-- Host resource monitoring
-- Container monitoring
-- Database monitoring
-- NGINX monitoring
-- Application metrics instrumentation
-- PromQL queries
-- Grafana dashboards
-- Histogram-based latency monitoring
+## Infrastructure Monitoring
+
+Monitoring of:
+
+- CPU usage
+- Memory usage
+- Disk usage
+- Network statistics
+
+Using:
+
+- node_exporter
+- Prometheus
+- Grafana
+
+
+## Container Monitoring
+
+Using cAdvisor:
+
+- container memory usage
+- container filesystem usage
+- container resource metrics
+
+
+## Database Monitoring
+
+Using postgres_exporter:
+
+- PostgreSQL statistics
+- database activity metrics
+
+
+## Web Server Monitoring
+
+Using nginx-prometheus-exporter:
+
+- NGINX traffic
+- connections
+- request metrics
+
+
+## Application Observability
+
+The FastAPI application exposes:
+/metrics
+
+Implemented:
+
+- HTTP request counters
+- route-based labels
+- latency histograms
+- average latency calculation
+- P95 latency monitoring
+
+
+Example PromQL:
+
+```promql
+histogram_quantile(
+  0.95,
+  rate(app_http_request_duration_seconds_bucket[5m])
+)
+```
+
+Alerting
+Implemented:
 - Prometheus alert rules
 - Alertmanager integration
+- Alert lifecycle testing
+Alert flow:
+Metric
+  |
+  v
+PromQL condition
+  |
+  v
+Prometheus Alert Rule
+  |
+  v
+Alertmanager
+Project Structure
+monitoring-stack/
+|
+├── docker-compose.yml
+|
+├── app/
+|
+├── prometheus/
+|
+├── alertmanager/
+|
+├── grafana/
+|
+└── nginx/
+Future Improvements
+- Notification channels (Telegram/Slack/Email)
+- CI/CD pipeline
+- Automated deployment
+- Kubernetes deployment
