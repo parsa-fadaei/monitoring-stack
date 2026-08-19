@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200"
+     height="900"
+     viewBox="0 0 1200 900">
+
+<style>
+.box {
+    fill:#f5f5f5;
+    stroke:#333;
+    stroke-width:2;
+    rx:12;
+}
+
+.title {
+    font-family:Arial;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.text {
+    font-family:Arial;
+    font-size:16px;
+}
+
+.arrow {
+    stroke:#333;
+    stroke-width:3;
+    marker-end:url(#arrowhead);
+}
+</style>
+
+
+<defs>
+<marker id="arrowhead"
+        markerWidth="10"
+        markerHeight="10"
+        refX="8"
+        refY="3"
+        orient="auto">
+    <polygon points="0 0, 10 3, 0 6"/>
+</marker>
+</defs>
+
+
+<!-- Grafana -->
+
+<rect class="box" x="450" y="60" width="300" height="90"/>
+<text class="title" x="520" y="100">Grafana</text>
+<text class="text" x="500" y="130">Dashboards</text>
+
+
+<!-- Prometheus -->
+
+<rect class="box" x="450" y="220" width="300" height="100"/>
+<text class="title" x="505" y="260">Prometheus</text>
+<text class="text" x="500" y="290">Metrics + PromQL</text>
+
+
+<line class="arrow"
+x1="600" y1="150"
+x2="600" y2="220"/>
+
+
+<!-- exporters -->
+
+
+<rect class="box" x="80" y="430" width="260" height="100"/>
+<text class="title" x="120" y="470">node_exporter</text>
+<text class="text" x="120" y="500">Linux metrics</text>
+
+
+<rect class="box" x="470" y="430" width="260" height="100"/>
+<text class="title" x="520" y="470">cAdvisor</text>
+<text class="text" x="520" y="500">Container metrics</text>
+
+
+<rect class="box" x="860" y="430" width="260" height="100"/>
+<text class="title" x="900" y="470">Postgres Exporter</text>
+<text class="text" x="900" y="500">Database metrics</text>
+
+
+<line class="arrow"
+x1="600" y1="320"
+x2="210" y2="430"/>
+
+<line class="arrow"
+x1="600" y1="320"
+x2="600" y2="430"/>
+
+<line class="arrow"
+x1="600" y1="320"
+x2="990" y2="430"/>
+
+
+<!-- Application -->
+
+
+<rect class="box" x="450" y="620" width="300" height="100"/>
+<text class="title" x="510" y="660">FastAPI</text>
+<text class="text" x="500" y="690">/metrics endpoint</text>
+
+
+<line class="arrow"
+x1="600" y1="530"
+x2="600" y2="620"/>
+
+
+<!-- Alertmanager -->
+
+<rect class="box" x="450" y="780" width="300" height="80"/>
+<text class="title" x="500" y="820">Alertmanager</text>
+
+
+<line class="arrow"
+x1="600" y1="720"
+x2="600" y2="780"/>
+
+
+</svg>
