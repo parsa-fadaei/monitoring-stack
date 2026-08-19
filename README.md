@@ -106,6 +106,8 @@ The FastAPI application exposes:
 /metrics
 ```
 
+Which allows for *Instrumentation*
+
 Implemented:
 
 - HTTP request counters
