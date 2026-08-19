@@ -10,11 +10,11 @@ This project demonstrates how to collect, visualize, and alert on infrastructure
 
 The goal of this project was to build a complete monitoring platform capable of:
 
-- collecting metrics
-- storing time-series data
-- creating operational dashboards
-- detecting abnormal conditions
-- generating alerts
+- Collecting metrics
+- Storing time-series data
+- Creating operational dashboards
+- Detecting abnormal conditions
+- Generating alerts
 
 The stack monitors:
 
@@ -39,7 +39,7 @@ The stack monitors:
 | Docker Compose | Containerized deployment |
 | Prometheus | Metrics collection and querying |
 | Grafana | Visualization and dashboards |
-| Alertmanager | Alert processing |
+| Alertmanager | Alert processing and routing |
 | node_exporter | Linux host metrics |
 | cAdvisor | Docker container metrics |
 | postgres_exporter | PostgreSQL monitoring |
@@ -65,46 +65,52 @@ Using:
 - Prometheus
 - Grafana
 
+---
 
 ## Container Monitoring
 
 Using cAdvisor:
 
-- container memory usage
-- container filesystem usage
-- container resource metrics
+- Container memory usage
+- Container filesystem usage
+- Container resource metrics
 
+---
 
 ## Database Monitoring
 
 Using postgres_exporter:
 
 - PostgreSQL statistics
-- database activity metrics
+- Database activity metrics
 
+---
 
 ## Web Server Monitoring
 
 Using nginx-prometheus-exporter:
 
 - NGINX traffic
-- connections
-- request metrics
+- Active connections
+- Request metrics
 
+---
 
 ## Application Observability
 
 The FastAPI application exposes:
+
+```
 /metrics
+```
 
 Implemented:
 
 - HTTP request counters
-- route-based labels
-- latency histograms
-- average latency calculation
+- Route-based labels
+- Latency histograms
+- Average latency calculation
 - P95 latency monitoring
-
 
 Example PromQL:
 
@@ -115,14 +121,19 @@ histogram_quantile(
 )
 ```
 
+---
+
 ## Alerting
 
-
 Implemented:
+
 - Prometheus alert rules
 - Alertmanager integration
 - Alert lifecycle testing
+
 Alert flow:
+
+```
 Metric
   |
   v
@@ -133,7 +144,16 @@ Prometheus Alert Rule
   |
   v
 Alertmanager
-Project Structure
+  |
+  v
+Notification Channel
+```
+
+---
+
+# Project Structure
+
+```
 monitoring-stack/
 |
 ├── docker-compose.yml
@@ -147,7 +167,12 @@ monitoring-stack/
 ├── grafana/
 |
 └── nginx/
-Future Improvements
+```
+
+---
+
+# Future Improvements
+
 - Notification channels (Telegram/Slack/Email)
 - CI/CD pipeline
 - Automated deployment
