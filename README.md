@@ -28,7 +28,8 @@ The stack monitors:
 
 # Architecture
 
-*(Architecture diagram will be added here)*
+
+![Monitoring Architecture](docs/architecture.svg)
 
 ---
 
