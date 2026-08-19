@@ -24,7 +24,7 @@ The stack monitors:
 - NGINX web server
 - FastAPI application metrics
 
-*Screenshots and Other Implemented Features to be added to README.md soon.*
+*Screenshots, Deeper Description and Other Implemented Features to be added respectively on README.md soon.*
 ---
 
 # Architecture
